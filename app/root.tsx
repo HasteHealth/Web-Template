@@ -5,10 +5,21 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useNavigate,
 } from "react-router";
+import {
+  HasteHealthProvider,
+  Loading,
+  ProfileDropdown,
+  SideBar,
+  Toaster,
+  useHasteHealth,
+} from "@haste-health/components";
+import "@haste-health/components/dist/index.css";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import { CLIENT_ID, FHIR_URL, PROJECT_ID, TENANT_ID } from "./config";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -33,7 +44,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <div className="p-4 border-b "></div>
+        <div className="mt-16 container mx-auto">{children}</div>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -41,8 +53,39 @@ export function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
-export default function App() {
+function Services() {
+  const hasteHealth = useHasteHealth();
+  if (!hasteHealth.isAuthenticated || hasteHealth.loading) {
+    return (
+      <div className="flex flex-col justify-center items-center space-y-2">
+        <Loading />
+        <span>Authorizing App</span>
+      </div>
+    );
+  }
   return <Outlet />;
+}
+
+export default function App() {
+  const navigate = useNavigate();
+
+  return (
+    <HasteHealthProvider
+      refresh
+      authorize_method="GET"
+      scope="offline_access openid email profile fhirUser user/*.*"
+      domain={FHIR_URL}
+      tenant={TENANT_ID}
+      project={PROJECT_ID}
+      clientId={CLIENT_ID}
+      redirectUrl={window.location.origin}
+      onRedirectCallback={(initialPath: string) => {
+        navigate(initialPath);
+      }}
+    >
+      <Services />
+    </HasteHealthProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

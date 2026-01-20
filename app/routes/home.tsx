@@ -1,13 +1,33 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+
+import {
+  Button,
+  FHIRCodeEditable,
+  FHIRGenerativeSearchTable,
+  FHIRReferenceEditable,
+  FHIRStringEditable,
+  Modal,
+  Toaster,
+  useHasteHealth,
+} from "@haste-health/components";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Haste Health Web App" },
+    { name: "description", content: "Example web app for Haste Health" },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  const hasteHealth = useHasteHealth();
+
+  return (
+    <main>
+      <FHIRGenerativeSearchTable
+        client={hasteHealth.client}
+        fhirVersion={"4.0"}
+        resourceType={"Patient"}
+      />
+    </main>
+  );
 }
