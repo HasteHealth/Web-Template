@@ -27,6 +27,14 @@ export default function Home() {
         client={hasteHealth.client}
         fhirVersion={"4.0"}
         resourceType={"Patient"}
+        parameters={[
+          "given",
+          "family",
+          "identifier",
+          "address",
+          "phone",
+          "gender",
+        ]}
       />
     </main>
   );

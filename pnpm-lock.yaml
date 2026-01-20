@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@haste-health/components':
-        specifier: ^0.17.0
-        version: 0.17.0(@codemirror/state@6.5.4)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.39.11)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(prettier@3.8.0))
+        specifier: ^0.19.0
+        version: 0.19.0(@codemirror/state@6.5.4)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.39.11)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(prettier@3.8.0))
       '@react-router/node':
         specifier: 7.12.0
         version: 7.12.0(react-router@7.12.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(typescript@5.9.3)
@@ -586,8 +586,8 @@ packages:
   '@haste-health/codegen@0.13.0':
     resolution: {integrity: sha512-HVS+1EvZovUno0Ta8XwSCOPYSK5PyQjE3Lf2DoYMyuya5LwIEJGpkBUw0Hn3kDspkAxzMTZHFABG1Jb2qnPYzA==}
 
-  '@haste-health/components@0.17.0':
-    resolution: {integrity: sha512-VbQZyV7W10FxNUqseO/tp9QDol0dZzXtyNbe/CV/blpudFT+GGhYH9CA23Ho8KDzXvSbI1QUaTzv+GHKdKtRlA==}
+  '@haste-health/components@0.19.0':
+    resolution: {integrity: sha512-sSO0KhPdvz6LhvZpUy7aiWUw/6IJnm3KlGrsoG5Pwli1PmKJmoxp3KuWgSnKEG7140HZ4o1Vz1Ctn8NIRZRyOg==}
     peerDependencies:
       '@codemirror/state': '>=6.0.0'
       '@codemirror/theme-one-dark': '>=6.0.0'
@@ -2601,7 +2601,7 @@ snapshots:
       '@haste-health/fhir-types': 0.13.0
       commander: 12.1.0
 
-  '@haste-health/components@0.17.0(@codemirror/state@6.5.4)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.39.11)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(prettier@3.8.0))':
+  '@haste-health/components@0.19.0(@codemirror/state@6.5.4)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.39.11)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@8.6.15(prettier@3.8.0))':
     dependencies:
       '@codemirror/lang-markdown': 6.5.0
       '@codemirror/merge': 6.11.2

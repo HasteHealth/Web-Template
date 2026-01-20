@@ -43,7 +43,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="bg-orange-50 h-screen">
         <div className="p-4 border-b "></div>
         <div className="mt-16 container mx-auto">{children}</div>
         <ScrollRestoration />
