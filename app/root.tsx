@@ -10,9 +10,6 @@ import {
 import {
   HasteHealthProvider,
   Loading,
-  ProfileDropdown,
-  SideBar,
-  Toaster,
   useHasteHealth,
 } from "@haste-health/components";
 import "@haste-health/components/dist/index.css";
@@ -43,8 +40,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-orange-50 h-screen">
-        <div className="p-4 border-b "></div>
+      <body className="h-screen">
+        <div className="flex px-8 py-4 justify-center items-center sticky top-0 bg-white border-b z-20">
+          <div>
+            <h1 className="text-2xl font-bold">Sample Web App</h1>
+          </div>
+          <div className="flex grow" />
+          <div>
+            <span>Test</span>
+          </div>
+        </div>
         <div className="mt-16 container mx-auto">{children}</div>
         <ScrollRestoration />
         <Scripts />
