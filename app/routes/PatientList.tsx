@@ -1,13 +1,8 @@
+import { useNavigate } from "react-router";
 import type { Route } from "./+types/home";
 
 import {
-  Button,
-  FHIRCodeEditable,
   FHIRGenerativeSearchTable,
-  FHIRReferenceEditable,
-  FHIRStringEditable,
-  Modal,
-  Toaster,
   useHasteHealth,
 } from "@haste-health/components";
 
@@ -19,6 +14,7 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
+  const navigate = useNavigate();
   const hasteHealth = useHasteHealth();
 
   return (
@@ -35,6 +31,9 @@ export default function Home() {
           "phone",
           "gender",
         ]}
+        onRowClick={(row: any) => {
+          navigate(`/patient/${row.id}`);
+        }}
       />
     </main>
   );
