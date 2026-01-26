@@ -28,7 +28,7 @@ export default function Layout() {
           <span>Logout</span>
         </div>
       </div>
-      <div className="mt-16 container mx-auto">
+      <div className="mt-2 container mx-auto">
         <Outlet />
       </div>
     </>
