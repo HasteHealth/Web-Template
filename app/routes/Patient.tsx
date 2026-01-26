@@ -1237,7 +1237,7 @@ export default function Home({ params }: Route.ComponentProps) {
     );
 
   return (
-    <main className="min-h-screen bg-linear-to-br from-orange-50 to-red-50">
+    <main className="min-h-screen ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header Section */}
         {patient && (
@@ -1245,10 +1245,14 @@ export default function Home({ params }: Route.ComponentProps) {
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl font-bold text-orange-900 mb-2">
-                  {patient.name?.[0]?.given?.join(" ")} {patient.name?.[0]?.family}
+                  {patient.name?.[0]?.given?.join(" ")}{" "}
+                  {patient.name?.[0]?.family}
                 </h1>
                 <p className="text-orange-600">
-                  MRN: {patient.identifier?.find((id) => id.type?.coding?.[0]?.code === "MR")?.value ?? patient.id}
+                  MRN:{" "}
+                  {patient.identifier?.find(
+                    (id) => id.type?.coding?.[0]?.code === "MR",
+                  )?.value ?? patient.id}
                 </p>
               </div>
               <div className="flex items-center space-x-2 text-sm text-orange-800">
